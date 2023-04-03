@@ -19,7 +19,7 @@ def init():
     return context
 
 
-@app.async_handler("/async")
+@app.handler("/")
 def handler(context: dict, request: Request) -> Response:
     audio = request.json.get('audio')
     model = context.get('model')
@@ -31,10 +31,15 @@ def handler(context: dict, request: Request) -> Response:
     writer = whisper.utils.get_writer('all', '.')
     writer(result, audioFile)
 
-    webhook = request.json.get('webhook')
-    send_webhook(url=webhook, json={"output": constructOutput()})
+    output = constructOutput()
 
-    return
+    webhook = request.json.get('webhook')
+    send_webhook(url=webhook, json={"output": output})
+
+    return Response(
+        json = {"outputs": output},
+        status=200
+    )
 
 
 def downloadAudio(url):
