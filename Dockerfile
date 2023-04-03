@@ -9,7 +9,7 @@ WORKDIR /
 RUN apt-get update && apt-get install -y git
 
 # Install ffmpeg
-RUN apt-get install ffmpeg
+RUN apt-get install -y ffmpeg
 
 # Install python packages
 RUN pip3 install --upgrade pip
