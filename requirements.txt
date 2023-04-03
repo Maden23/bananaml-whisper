@@ -1,0 +1,3 @@
+potassium
+requests
+openai-whisper

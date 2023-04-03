@@ -1,0 +1,16 @@
+{
+    "name": "",
+    "category": "",
+    "example_input": {
+        "input": "https://your-site.com/files/audio.mp3"
+    },
+    "example_output": {
+        "output": {
+            "text": "Simple text",
+            "transcription": "Text with timestamps",
+            "srt": "SRT formated text",
+            "segments" : "Individual recognized segments"
+        }
+    },
+    "version": "1"
+}
